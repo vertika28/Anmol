@@ -1,22 +1,23 @@
-.add_lead_modal_btn{
-    background-color: black;
-    color:white;
-    float: left;
+.add_lead_modal_btn {
+  background-color: black;
+  color: white;
+  margin: 5px;
+  float: left;
 }
 
-.update_lead_modal_btn{
-    background-color: black;
-    color:white;
-    float: left;
-    margin:5px;
+.update_lead_modal_btn {
+  background-color: black;
+  color: white;
+  float: left;
+  margin: 5px;
 }
 
-.delete_lead_modal_btn{
-    background-color: black;
-    color:white;
-    float: left;
-    margin:5px;
+.delete_lead_modal_btn {
+  background-color: black;
+  color: white;
+  float: left;
+  margin: 5px;
 }
-.leads_table{
-    display: flex;
+.leads_table {
+  display: flex;
 }

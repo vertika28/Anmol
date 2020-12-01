@@ -10,7 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import AddLeadModal from "./AddLeadModal";
 import DeleteLeadModal from "./DeleteLead";
 import MarkCommunication from "./MarkCommunication";
-import './DisplayLeads.css';
+import "./DisplayLeads.css";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -120,7 +120,7 @@ function DisplayLeads() {
           </TableHead>
           <TableBody>
             {leadsInfo.map((row) => (
-              <StyledTableRow key={row.name}>
+              <StyledTableRow key={row.id}>
                 <StyledTableCell component="th" scope="row">
                   {row.name}
                 </StyledTableCell>

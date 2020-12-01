@@ -5,6 +5,7 @@ import { Form, Field } from "react-final-form";
 import { TextField, Select } from "final-form-material-ui";
 import { Paper, Grid, Button, MenuItem } from "@material-ui/core";
 import qs from "qs";
+import "./AddLeadModal.css";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -68,12 +69,19 @@ const AddLeadModal = (props) => {
       },
     })
       .then((response) => {
-        props.closeModal();
-        props.fetchLeads();
+        if (response.status === 201) {
+          props.closeModal();
+          props.fetchLeads();
+        } else {
+          props.closeModal();
+          alert("Error occurred/Email already exists");
+        }
         return response.json();
       })
       .catch((error) => {
-        alert("Error", error.message);
+        console.log(error);
+        props.closeModal();
+        alert("Error occurred/Email already exists");
       });
   };
 
@@ -167,7 +175,8 @@ const AddLeadModal = (props) => {
                     variant="contained"
                     color="primary"
                     type="submit"
-                    disabled={submitting}
+                    disabled={submitting || pristine}
+                    className="add_lead_btn"
                   >
                     Save
                   </Button>

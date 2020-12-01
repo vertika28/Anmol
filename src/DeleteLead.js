@@ -3,10 +3,14 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import "./DeleteLead.css";
+import CloseIcon from "@material-ui/icons/Close";
+import { createMuiTheme } from "@material-ui/core/";
+import IconButton from "@material-ui/core/IconButton";
 
 export default function DeleteLead(props) {
+  const theme = createMuiTheme();
   const deleteLead = () => {
-    console.log(props.leadId);
     fetch(`${process.env.REACT_APP_API_URL}/api/leads/${props.leadId}/`, {
       method: "DELETE",
     })
@@ -33,11 +37,29 @@ export default function DeleteLead(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle id="alert-dialog-title" style={{ width: "70%" }}>
           {"Do you wish to delete this lead?"}
+          <IconButton
+            edge="start"
+            color="inherit"
+            style={{
+              position: "absolute",
+              right: theme.spacing(0.1),
+              top: theme.spacing(1),
+              color: theme.palette.grey[500],
+            }}
+            onClick={props.closeDelete}
+            aria-label="close"
+          >
+            <CloseIcon />
+          </IconButton>
         </DialogTitle>
         <DialogActions>
-          <Button onClick={deleteLead} color="secondary" variant="contained">
+          <Button
+            onClick={deleteLead}
+            variant="contained"
+            className="delete_lead_form"
+          >
             Delete
           </Button>
           <Button
@@ -45,6 +67,7 @@ export default function DeleteLead(props) {
             color="primary"
             autoFocus
             variant="contained"
+            className="cancel_lead_form"
           >
             Cancel
           </Button>

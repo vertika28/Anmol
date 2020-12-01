@@ -6,7 +6,6 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
-import Toolbar from "@material-ui/core/Toolbar";
 import CloseIcon from "@material-ui/icons/Close";
 import { createMuiTheme } from "@material-ui/core/";
 import IconButton from "@material-ui/core/IconButton";
