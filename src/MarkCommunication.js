@@ -6,8 +6,13 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import Toolbar from "@material-ui/core/Toolbar";
+import CloseIcon from "@material-ui/icons/Close";
+import { createMuiTheme } from "@material-ui/core/";
+import IconButton from "@material-ui/core/IconButton";
 
 export default function MarkCommunication(props) {
+  const theme = createMuiTheme();
   const saveCom = () => {
     const dataObj = { communication: props.comMsg };
     fetch(`${process.env.REACT_APP_API_URL}/api/mark_lead/${props.leadId}`, {
@@ -43,6 +48,20 @@ export default function MarkCommunication(props) {
       >
         <DialogTitle id="alert-dialog-title">
           {"Mark Communication"}
+          <IconButton
+            edge="start"
+            color="inherit"
+            style={{
+              position: "absolute",
+              right: theme.spacing(1),
+              top: theme.spacing(1),
+              color: theme.palette.grey[500],
+            }}
+            onClick={props.closeCom}
+            aria-label="close"
+          >
+            <CloseIcon />
+          </IconButton>
         </DialogTitle>
         <DialogContent>
           <DialogContentText>Communication</DialogContentText>
@@ -51,7 +70,7 @@ export default function MarkCommunication(props) {
             rowsMin={10}
             style={{ width: "100%" }}
             onChange={props.getComMsg}
-            value={props.comMsg}
+            value={props.comMsg ? props.comMsg : ""}
           />
         </DialogContent>
         <DialogActions>
