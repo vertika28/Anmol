@@ -5,6 +5,7 @@ import { Form, Field } from "react-final-form";
 import { TextField, Select } from "final-form-material-ui";
 import { Paper, Grid, Button, MenuItem } from "@material-ui/core";
 import qs from "qs";
+import './AddLeadModal.css';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -168,6 +169,7 @@ const AddLeadModal = (props) => {
                     color="primary"
                     type="submit"
                     disabled={submitting}
+                    className="add_lead_btn"
                   >
                     Save
                   </Button>

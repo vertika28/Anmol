@@ -3,6 +3,7 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import './DeleteLead.css';
 
 export default function DeleteLead(props) {
   const deleteLead = () => {
@@ -37,7 +38,7 @@ export default function DeleteLead(props) {
           {"Do you wish to delete this lead?"}
         </DialogTitle>
         <DialogActions>
-          <Button onClick={deleteLead} color="secondary" variant="contained">
+          <Button onClick={deleteLead} variant="contained" className="delete_lead_form">
             Delete
           </Button>
           <Button
@@ -45,6 +46,7 @@ export default function DeleteLead(props) {
             color="primary"
             autoFocus
             variant="contained"
+            className="cancel_lead_form"
           >
             Cancel
           </Button>

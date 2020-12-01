@@ -6,6 +6,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import './MarkCommunication.css';
 
 export default function MarkCommunication(props) {
   const saveCom = () => {
@@ -67,6 +68,7 @@ export default function MarkCommunication(props) {
             color="primary"
             variant="contained"
             autoFocus
+            className="update_lead_btn"
           >
             Save
           </Button>
