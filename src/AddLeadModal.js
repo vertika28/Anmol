@@ -81,6 +81,7 @@ const AddLeadModal = (props) => {
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Add Lead</h2>
       <Form
+        className="add_lead_form"
         onSubmit={onSubmit}
         initialValues={{}}
         validate={validate}

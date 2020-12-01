@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import AddLeadModal from "./AddLeadModal";
 import DeleteLeadModal from "./DeleteLead";
 import MarkCommunication from "./MarkCommunication";
+import './DisplayLeads.css';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -96,13 +97,6 @@ function DisplayLeads() {
     return () => (mounted = false);
   }, [fetchLeads]);
 
-  const handleReset = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/reset-db/`, {
-      method: "POST",
-    }).then((response) => alert(response.status));
-    fetchLeads();
-  };
-
   const getComMsg = (event) => {
     setComMsg(event.target.value);
   };
@@ -112,10 +106,7 @@ function DisplayLeads() {
       <button className="add_lead_modal_btn" onClick={handleOpen}>
         Add Lead
       </button>
-      <button className="add_lead_modal_btn" onClick={handleReset}>
-        Reset DB
-      </button>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} className="leads_table">
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
